@@ -60,8 +60,8 @@ function LabDetail({ lab, done, setDone, onBack }) {
 
       <div className="alert as" style={{marginTop:'.6rem',fontSize:'.83rem'}}><strong>Expected:</strong> {lab.expected}</div>
       <div style={{display:'flex',gap:'.5rem',marginTop:'.75rem',flexWrap:'wrap'}}>
-        <button className="btn btn-s" disabled={step===0} onClick={()=>setStep(s=>s-1)}>Buoc truoc</button>
-        <button className="btn btn-o" disabled={step===lab.steps.length-1} onClick={()=>setStep(s=>s+1)}>Buoc tiep</button>
+        <button className="btn btn-s" disabled={step===0} onClick={()=>setStep(s=>s-1)}>Bước trước</button>
+        <button className="btn btn-o" disabled={step===lab.steps.length-1} onClick={()=>setStep(s=>s+1)}>Bước tiếp</button>
       </div>
     </div>
   )
@@ -75,7 +75,7 @@ export default function Labs() {
 
   return (
     <div className="fu">
-      <div className="page-hdr"><h1><span className="gt">Lab thuc hanh</span></h1><p>{LABS.length} labs — PyTorch, Flower FL, Opacus DP, Model Security</p></div>
+      <div className="page-hdr"><h1><span className="gt">Lab thực hành</span></h1><p>{LABS.length} labs — PyTorch, Flower FL, Opacus DP, Model Security</p></div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(280px,100%),1fr))',gap:'.7rem'}}>
         {LABS.map(l=>(
           <div key={l.id} className="card card-a" onClick={()=>setSel(l)} style={{padding:'1.05rem',borderColor:'rgba(255,56,96,.15)'}}>
