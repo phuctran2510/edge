@@ -16,7 +16,7 @@ export default function Quiz() {
       <div className="prog" style={{marginBottom:'1.1rem'}}><div className="prog-f" style={{width:`${Object.keys(ch).length/pool.length*100}%`}}/></div>
       {pool.map((qq,i)=>(
         <div key={qq.id} className="card" style={{padding:'1.05rem',marginBottom:'.65rem'}}>
-          <div style={{fontSize:'.72rem',color:'var(--txt3)',marginBottom:'.32rem'}}>Cau {i+1} · {qq.cat}</div>
+          <div style={{fontSize:'.72rem',color:'var(--txt3)',marginBottom:'.32rem'}}>Câu {i+1} · {qq.cat}</div>
           <p style={{fontWeight:600,color:'var(--txt)',fontSize:'.88rem',marginBottom:'.65rem',lineHeight:1.55}}>{qq.q}</p>
           {qq.opts.map((opt,j)=>{const done=ch[i]!==undefined,sel=ch[i]===j,right=qq.ans===j;return(
             <div key={j} onClick={()=>pick(i,j)} className={`qopt${done&&right?' qr':done&&sel&&!right?' qw':''}`} style={{opacity:done&&!right&&!sel?.5:1}}>
@@ -65,7 +65,7 @@ export default function Quiz() {
         {ch[idx]!==undefined&&<div className="alert as" style={{marginTop:'.7rem',fontSize:'.83rem'}}><strong>Giải thích:</strong> {q.exp}</div>}
       </div>
       <div style={{display:'flex',justifyContent:'space-between',gap:'.5rem'}}>
-        <button className="btn btn-s" disabled={idx===0} onClick={()=>setIdx(i=>i-1)}>Cau truoc</button>
+        <button className="btn btn-s" disabled={idx===0} onClick={()=>setIdx(i=>i-1)}>Câu trước</button>
         <button className="btn btn-o" disabled={idx===pool.length-1} onClick={()=>setIdx(i=>i+1)}>Câu tiếp</button>
       </div>
     </div>

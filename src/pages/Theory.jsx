@@ -57,7 +57,7 @@ export default function Theory() {
 
   return (
     <div>
-      <div className="page-hdr"><h1><span className="gt">Lý thuyết</span></h1><p>{chapters.length} chương — Edge AI Security, Adversarial ML, FL, Blockchain, FPGA</p></div>
+      <div className="page-hdr"><h1><span className="gt">Lý thuyết</span></h1><p>{chapters.length} Chương — Edge AI Security, Adversarial ML, FL, Blockchain, FPGA</p></div>
 
       <div className="mob" style={{display:'flex',gap:'.3rem',overflowX:'auto',paddingBottom:'.4rem',marginBottom:'.7rem',scrollbarWidth:'none'}}>
         {chapters.map(c => <button key={c.id} onClick={()=>pick(c)} style={{padding:'.3rem .62rem',borderRadius:7,flexShrink:0,background:ch.id===c.id?`${c.color}14`:'var(--sur)',border:`1px solid ${ch.id===c.id?c.color+'35':'var(--brd)'}`,color:ch.id===c.id?c.color:'var(--txt3)',cursor:'pointer',fontSize:'.73rem',whiteSpace:'nowrap'}}>{c.title}</button>)}
@@ -81,8 +81,8 @@ export default function Theory() {
           {ch.sections.length>1 && <div className="tabs">{ch.sections.map(s=><button key={s.id} className={`tab${sc.id===s.id?' on':''}`} onClick={()=>{setSc(s);window.scrollTo(0,0)}}>{s.title}</button>)}</div>}
           <div className="card" style={{padding:'1.1rem 1.2rem'}}><Md text={sc.content}/></div>
           <div style={{display:'flex',justifyContent:'space-between',marginTop:'.75rem',gap:'.5rem'}}>
-            <button className="btn btn-s" disabled={!hasPrev} onClick={goPrev}>Trang truoc</button>
-            <button className="btn btn-o" disabled={!hasNext} onClick={goNext}>Trang tiep</button>
+            <button className="btn btn-s" disabled={!hasPrev} onClick={goPrev}>Trang trước</button>
+            <button className="btn btn-o" disabled={!hasNext} onClick={goNext}>Trang tiếp</button>
           </div>
         </div>
       </div>

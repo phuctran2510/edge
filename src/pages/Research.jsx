@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RESEARCH_TOPICS } from '../data/content'
 
-const LEVELS = ['all','Đang nghiên cứu','Mới nổi','Open Problem']
+const LEVELS = ['All','Đang nghiên cứu','Mới nổi','Open Problem']
 
 export default function Research() {
   const [lv, setLv] = useState('all')
@@ -13,7 +13,7 @@ export default function Research() {
     const t = RESEARCH_TOPICS.find(x=>x.id===sel)
     return (
       <div className="fu">
-        <button className="btn btn-s" style={{marginBottom:'1.1rem'}} onClick={()=>setSel(null)}>← Danh sach de tai</button>
+        <button className="btn btn-s" style={{marginBottom:'1.1rem'}} onClick={()=>setSel(null)}>← Danh sách đề tài</button>
         <div className="card" style={{padding:'1.3rem',borderColor:`${t.color}28`,background:`${t.color}05`,marginBottom:'1.1rem'}}>
           <span className="badge" style={{background:`${t.color}12`,color:t.color,border:`1px solid ${t.color}28`,marginBottom:'.55rem',display:'inline-flex'}}>{t.level}</span>
           <h2 style={{fontWeight:800,fontSize:'1.1rem',marginBottom:'.4rem'}}>{t.title}</h2>
@@ -50,8 +50,8 @@ export default function Research() {
   return (
     <div className="fu">
       <div className="page-hdr">
-        <h1><span className="gt">De tai NCKH</span></h1>
-        <p>{RESEARCH_TOPICS.length} de tai — Open problems va huong nghien cuu moi nhat the gioi</p>
+        <h1><span className="gt">Đề tài NCKH</span></h1>
+        <p>{RESEARCH_TOPICS.length} de tai — Open problems và hướng nghiên cứu mới nhất trên thế giới</p>
       </div>
 
       <div className="tabs" style={{marginBottom:'1rem'}}>
