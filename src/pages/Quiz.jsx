@@ -28,7 +28,7 @@ export default function Quiz() {
         </div>
       ))}
       <div style={{display:'flex',justifyContent:'center',padding:'1rem 0'}}>
-        <button className="btn btn-r" disabled={Object.keys(ch).length<pool.length} onClick={()=>setScore(pool.filter((_,i)=>ch[i]===pool[i].ans).length)}>Nop bai ({Object.keys(ch).length}/{pool.length})</button>
+        <button className="btn btn-r" disabled={Object.keys(ch).length<pool.length} onClick={()=>setScore(pool.filter((_,i)=>ch[i]===pool[i].ans).length)}>Nộp bài ({Object.keys(ch).length}/{pool.length})</button>
       </div>
     </div>
   )
@@ -38,19 +38,19 @@ export default function Quiz() {
       <div style={{color:'var(--txt2)',marginBottom:'1.5rem'}}>{pct}% — {pct>=80?'Xuat sac!':pct>=60?'Kha tot!':'Can on them!'}</div>
       <div style={{display:'flex',gap:'.6rem',justifyContent:'center'}}>
         <button className="btn btn-r" onClick={()=>{setCh({});setScore(null);setMode('test')}}>Lam lai</button>
-        <button className="btn btn-s" onClick={()=>{setCh({});setScore(null);setMode('browse');setIdx(0)}}>Ve browse</button>
+        <button className="btn btn-s" onClick={()=>{setCh({});setScore(null);setMode('browse');setIdx(0)}}>Về browse</button>
       </div>
     </div>
   )}
   if(!q)return null
   return(
     <div className="fu">
-      <div className="page-hdr"><h1><span className="gt">Trac nghiem</span></h1><p>{QUIZ.length} cau — Adversarial ML, FL, Blockchain, HE, FPGA Security</p></div>
+      <div className="page-hdr"><h1><span className="gt">Trắc nghiệm</span></h1><p>{QUIZ.length} cau — Adversarial ML, FL, Blockchain, HE, FPGA Security</p></div>
       <div style={{display:'flex',gap:'.45rem',flexWrap:'wrap',marginBottom:'1rem',alignItems:'center'}}>
         <select value={cat} onChange={e=>{setCat(e.target.value);setIdx(0);setCh({})}} style={{padding:'.38rem .65rem',background:'var(--sur)',border:'1px solid var(--brd)',color:'var(--txt)',borderRadius:6,fontSize:'.81rem'}}>
-          {CATS.map(c=><option key={c} value={c}>{c==='all'?`Tat ca (${QUIZ.length})`:c}</option>)}
+          {CATS.map(c=><option key={c} value={c}>{c==='all'?`Tất cả (${QUIZ.length})`:c}</option>)}
         </select>
-        <button className="btn btn-r" onClick={()=>{setCh({});setScore(null);setMode('test')}}>Bat dau kiem tra ({pool.length})</button>
+        <button className="btn btn-r" onClick={()=>{setCh({});setScore(null);setMode('test')}}>Bắt đầu kiểm tra ({pool.length})</button>
       </div>
       <div style={{fontSize:'.74rem',color:'var(--txt3)',marginBottom:'.65rem'}}>Cau {idx+1}/{pool.length} · {q.cat}</div>
       <div className="prog" style={{marginBottom:'.9rem'}}><div className="prog-f" style={{width:`${(idx+1)/pool.length*100}%`}}/></div>
@@ -62,11 +62,11 @@ export default function Quiz() {
             {opt}
           </div>
         )})}
-        {ch[idx]!==undefined&&<div className="alert as" style={{marginTop:'.7rem',fontSize:'.83rem'}}><strong>Giai thich:</strong> {q.exp}</div>}
+        {ch[idx]!==undefined&&<div className="alert as" style={{marginTop:'.7rem',fontSize:'.83rem'}}><strong>Giải thích:</strong> {q.exp}</div>}
       </div>
       <div style={{display:'flex',justifyContent:'space-between',gap:'.5rem'}}>
         <button className="btn btn-s" disabled={idx===0} onClick={()=>setIdx(i=>i-1)}>Cau truoc</button>
-        <button className="btn btn-o" disabled={idx===pool.length-1} onClick={()=>setIdx(i=>i+1)}>Cau tiep</button>
+        <button className="btn btn-o" disabled={idx===pool.length-1} onClick={()=>setIdx(i=>i+1)}>Câu tiếp</button>
       </div>
     </div>
   )
