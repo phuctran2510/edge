@@ -1,13 +1,16 @@
 {
   "name": "edge-ai-security",
+  "homepage": "https://phuctran2510.github.io/edge",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:gh": "VITE_BASE=/edge-ai-security/ vite build",
-    "preview": "vite preview"
+    "build:gh": "VITE_BASE=/edge/ vite build",
+    "preview": "vite preview",
+     "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -16,6 +19,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.0",
+    "gh-pages": "^6.3.0",
     "vite": "^6.0.0"
   }
 }
